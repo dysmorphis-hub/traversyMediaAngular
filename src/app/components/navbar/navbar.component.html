@@ -1,5 +1,27 @@
-<nav class="navbar navbar-dark bg-primary mb-4">
+<nav class="navbar navbar-expand navbar-dark bg-primary mb-4">
   <div class="container">
-    <a href="#" class="navbar-brand">Angular App</a>
+    <a routerLink="/" class="navbar-brand">Angular App</a>
+    <div>
+
+      <!-- NOTE: routerLinkActive doctrine setzt im menü das active element... routerLinkActiveOptions
+       see:
+      https://www.tektutorialshub.com/angular/routerlinkactive-router-outlet-styling/
+      for details
+      -->
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a routerLink="/" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/users" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Users</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/posts" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Posts</a>
+        </li>
+
+      </ul>
+    </div>
   </div>
+
 </nav>

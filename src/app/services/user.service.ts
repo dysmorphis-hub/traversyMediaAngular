@@ -3,7 +3,6 @@ import {User} from "../models/User";
 import {Observable, of} from "rxjs";
 // rxjs -> reactive extensions - not related to angular
 
-
 @Injectable({
   providedIn: 'root'
 })

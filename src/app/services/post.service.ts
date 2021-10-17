@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { Post } from "../models/Post";
+import { Observable, of } from 'rxjs';
+import { Post } from '../models/Post';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,22 @@ export class PostService {
 
   savePost(post: Post): Observable<Post>{
     return this.http.post<Post>(this.postsUrl, post, this.httpOptions)
+  }
+
+  updatePost(post: Post): Observable<Post>{
+    const url= `${this.postsUrl}/${post.id}`;
+    return this.http.put<Post>(this.postsUrl, this.httpOptions);
+  }
+
+  getPost(id: number): Observable<Post>{
+    const url= `${this.postsUrl}/${id}`;
+    return this.http.get<Post>(url);
+  }
+
+  removePost(post: Post | number): Observable<Post>{
+    const id = typeof post === 'number' ? post : post.id;
+    const url= `${this.postsUrl}/${id}`;
+    return this.http.delete<Post>(url, this.httpOptions);
   }
 }
 
